@@ -119,7 +119,7 @@ Documentação por pipeline/job:
 - [`docs/PIPELINES/gold_rst_base_empresarial.md`](docs/PIPELINES/gold_rst_base_empresarial.md)
 
 ## Modelo de Dados
-- Relações fato/dimensão, grão e cardinalidade: [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md)
+- Relações fato/dimensão, grão e cardinalidade: [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md).
 
 ## Tabelas com links
 - Visão por camada:
