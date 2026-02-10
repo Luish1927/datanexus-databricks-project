@@ -4,7 +4,7 @@
 - `README.md`: documentação principal.
 - `docs/`: documentação técnica detalhada.
 - `build/`: notebooks utilitários/experimentais de ingestão e DDL auxiliar.
-- `config/`: configuração de acesso ao storage, secrets e mounts.
+- `config/`: configuração de acesso ao storage e mounts.
 - `notebooks/`: pipelines por camada (`bronze`, `silver`, `gold`).
 - `tools/`: utilitários de parâmetros e funções (inclui Scala para unzip/cópia).
 
@@ -28,7 +28,7 @@
 - `rst_base_empresarial.ipynb`: fato agregado empresarial por UF/CNAE.
 
 ## `config`
-- `config.ipynb`: configura paths e `spark.conf` com secret.
+- `config.ipynb`: configura paths e `spark.conf` de acesso ao storage.
 - `mount_storage.ipynb`: monta containers em `/mnt/*`.
 
 ## `build`

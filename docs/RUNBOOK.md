@@ -25,7 +25,7 @@
 - `notebooks/gold/rst_base_empresarial.ipynb`
 
 ## Checklist pré-execução
-- Secret scope `kv-datanexus` acessível.
+- Chave da storage configurada no cluster Databricks.
 - Paths `abfss://...` e/ou mounts `/mnt/...` disponíveis.
 - Schemas/tabelas DDL já criados.
 - Presença de arquivos novos no Bronze source.
@@ -55,8 +55,8 @@
 5. Validar contagens e consistência.
 
 ## Recuperação de falhas
-- Falha de acesso storage/secret:
-  - validar `dbutils.secrets.get` e ACL do scope.
+- Falha de acesso storage/autenticação:
+  - validar `spark.conf` de acesso (`fs.azure.account.key.storagedatanexus.dfs.core.windows.net`) no cluster.
 - Falha de schema/cast:
   - comparar schema esperado no notebook com schema real do Delta source.
 - Falha de merge:

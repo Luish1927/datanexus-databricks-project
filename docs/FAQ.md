@@ -1,8 +1,8 @@
 # FAQ e Troubleshooting
 
 ## 1. Erro de acesso ao Storage (`Permission denied` / `Invalid configuration value`)
-- Validar secret scope `kv-datanexus` e chave `storagedatanexus`.
-- Confirmar `spark.conf.set("fs.azure.account.key....")` executado na sessão.
+- Validar se a chave da Storage Account está configurada no cluster.
+- Confirmar `spark.conf.set("fs.azure.account.key....")` carregado na sessão/cluster.
 
 ## 2. Notebook Silver não atualiza dados após primeira execução
 Causa comum: padrão `if (!silverExists) { ... mode("overwrite") ... }`.

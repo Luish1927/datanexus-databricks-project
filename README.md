@@ -5,7 +5,7 @@ Este projeto implementa um lakehouse em Databricks para dados de comércio exter
 - Ingestão automática de arquivos CSV/ZIP para Delta no Bronze.
 - Curadoria e padronização de tabelas de referência, estatísticas e índices no Silver.
 - Entrega de tabelas analíticas Gold para consumo em BI (incluindo agregações por país, UF, ISIC e CNAE).
-- Organização por notebooks Databricks (PySpark/SQL) com DDL separado por camada.
+- Organização por notebooks Databricks (Scala, PySpark e SQL) com DDL separado por camada.
 - Suporte a otimizações Delta (`OPTIMIZE`, `ZORDER`, particionamento por período).
 
 ## Sumário
@@ -61,7 +61,7 @@ Exemplo de sequência real baseada no repositório (Databricks):
 ```python
 # 2) Configurar acesso ao storage e otimizações
 # notebook: config/config.ipynb
-storage_key = dbutils.secrets.get(scope="kv-datanexus", key="storagedatanexus")
+storage_key = "<azure-storage-key-configurada-no-cluster>"
 spark.conf.set("fs.azure.account.key.storagedatanexus.dfs.core.windows.net", storage_key)
 spark.conf.set("spark.databricks.delta.optimizeWrite.enabled", "true")
 spark.conf.set("spark.databricks.delta.autoCompact.enabled", "true")
@@ -96,9 +96,14 @@ rst_exp_imp_pais.write.format("delta").mode("overwrite") \
 Instruções operacionais completas: [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
 ## Configuração de Acesso/Secrets
-- Secrets via Databricks Secret Scope (`kv-datanexus`) em `config/config.ipynb` e `config/mount_storage.ipynb`.
+- No ambiente atual, a chave da Storage Account é configurada diretamente no cluster Databricks (Spark config).
+- Os notebooks `config/config.ipynb` e `config/mount_storage.ipynb` ainda mostram leitura via `dbutils.secrets.get`.
 - Não há segredos em texto puro no repositório.
 - Detalhes: [`docs/SETUP.md`](docs/SETUP.md).
+
+⚠️ Atenção
+- O repositório documenta dois padrões de autenticação (cluster config e `dbutils.secrets.get` nos notebooks).
+- Padronizar um único modelo operacional reduz risco de divergência entre ambientes.
 
 ## Pipelines
 Documentação por pipeline/job:

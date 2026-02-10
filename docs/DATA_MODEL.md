@@ -31,6 +31,16 @@ O modelo final combina fatos de comércio exterior com dimensões de país, prod
 
 ## Relacionamentos
 
+Diagrama lógico simplificado:
+```text
+gold.rst_exp_imp_pais  --(cod_pais)------> gold.dim_pais
+gold.rst_exp_imp_pais  --(cod_ncm)-------> gold.dim_ncm_isic
+gold.rst_exp_imp_pais  --(ano,mes)-------> gold.dim_calendario
+
+gold.rst_base_empresarial --(cod_cnae)---> gold.dim_cnaes
+gold.rst_base_empresarial --(sigla_uf)---> gold.dim_uf
+```
+
 ### Comércio exterior
 - `gold.rst_exp_imp_pais.cod_pais` -> `gold.dim_pais.cod_pais` (N:1)
 - `gold.rst_exp_imp_pais.cod_ncm` -> `gold.dim_ncm_isic.cod_ncm` (N:1)
@@ -39,6 +49,9 @@ O modelo final combina fatos de comércio exterior com dimensões de país, prod
 ### Base empresarial
 - `gold.rst_base_empresarial.cod_cnae` -> `gold.dim_cnaes.cod_cnae` (N:1)
 - `gold.rst_base_empresarial.sg_unidade_federativa` -> `gold.dim_uf.sigla_uf` (N:1 lógica)
+
+⚠️ Atenção
+- PK/FK não são materialmente impostas por constraint no código versionado; são chaves lógicas de modelagem/consumo.
 
 ## Modelo Silver de suporte
 - Fatos:
