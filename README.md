@@ -37,7 +37,7 @@ Referências detalhadas:
 ## Arquitetura
 <img width="1068" height="545" alt="image" src="https://github.com/user-attachments/assets/9e6a8e46-458d-4c40-a798-e72d53aef332" />
 
-Resumo:
+**Resumo:**
 1. Arquivos chegam em `raw/landingbeca2026jan` e/ou containers de origem.
 2. Ingestão Bronze com Auto Loader (`cloudFiles`) para tabelas Delta.
 3. Notebooks Silver aplicam casts, validações, tratamento de negativos, deduplicação e carga (merge/overwrite condicional).
