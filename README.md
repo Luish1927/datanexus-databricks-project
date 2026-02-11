@@ -125,5 +125,3 @@ Categorias encontradas:
 - Configuração: `config/*`
 - Utilitários: `tools/*`, `build/Tools.py`
 - Build/ingest auxiliares: `build/*`
-
-Observação: não foram encontrados arquivos de CI/CD, jobs Databricks exportados (`*.json`), SQL avulso (`*.sql`), ou infra declarativa (`*.yml`, `*.tf`).
