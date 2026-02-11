@@ -62,14 +62,3 @@ SELECT CO_NCM, CO_ISIC_CLASSE
 FROM silver_comercio_ext_indices.tb_nomenclatura_mercosul
 LIMIT 20;
 ```
-
-## ⚠️ Atenção
-1. Divergência de nome/path em `isic_cuci`:
-- DDL: `tb_referencia_isic_cuci`.
-- notebook: `tb_classificacao_isic_cuci`.
-
-2. Divergência de nome em bridge NBM/NCM:
-- DDL: `tb_referencia_ncm_nbm`.
-- notebook: `tb_referencia_nbm_ncm`.
-
-3. Estratégia `if (!silverExists)` pode impedir atualização incremental.

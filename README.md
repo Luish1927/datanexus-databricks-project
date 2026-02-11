@@ -49,63 +49,13 @@ Fluxo completo e trade-offs: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 Mapa completo e propósito de cada diretório: [`docs/FOLDERS.md`](docs/FOLDERS.md).
 
 ## Como Rodar
-### Quickstart
-Exemplo de sequência real baseada no repositório (Databricks):
-
-```sql
--- 1) Criar schemas/tabelas base
--- executar notebooks:
--- notebooks/bronze/_ddl_bronze.ipynb
--- notebooks/silver/_ddl_silver.ipynb
--- notebooks/gold/_ddl_gold.ipynb
-```
-
-```python
-# 2) Configurar acesso ao storage e otimizações
-# notebook: config/config.ipynb
-storage_key = "<azure-storage-key-configurada-no-cluster>"
-spark.conf.set("fs.azure.account.key.storagedatanexus.dfs.core.windows.net", storage_key)
-spark.conf.set("spark.databricks.delta.optimizeWrite.enabled", "true")
-spark.conf.set("spark.databricks.delta.autoCompact.enabled", "true")
-```
-
-```python
-# 3) Ingestão Bronze (exemplo)
-# notebook: notebooks/bronze/balancacomercial.ipynb
-query = (
-  spark.readStream.format("cloudFiles")
-    .option("cloudFiles.format", "csv")
-    .option("cloudFiles.includeExistingFiles", "true")
-    .toTable("bronze_balancacomercial.<tabela>")
-)
-```
-
-```scala
-// 4) Curadoria Silver (exemplo)
-// notebook: notebooks/silver/abs_landingbeca2026jan/comercio_ext_estatisticas/tb_exportacoes.ipynb
-val deltaTarget = DeltaTable.forName("silver_comercio_ext_estatisticas.tb_exportacoes")
-// merge/upsert por chave de negócio
-```
-
-```python
-# 5) Publicação Gold (exemplo)
-# notebook: notebooks/gold/rst_exp_imp_pais.ipynb
-rst_exp_imp_pais.write.format("delta").mode("overwrite") \
-  .partitionBy("ano_operacao", "mes_operacao") \
-  .saveAsTable("gold.rst_exp_imp_pais")
-```
-
-Instruções operacionais completas: [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
+Execução operacional no Databricks: [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
 ## Configuração de Acesso/Secrets
 - No ambiente atual, a chave da Storage Account é configurada diretamente no cluster Databricks (Spark config).
 - Os notebooks `config/config.ipynb` e `config/mount_storage.ipynb` ainda mostram leitura via `dbutils.secrets.get`.
 - Não há segredos em texto puro no repositório.
 - Detalhes: [`docs/SETUP.md`](docs/SETUP.md).
-
-⚠️ Atenção
-- O repositório documenta dois padrões de autenticação (cluster config e `dbutils.secrets.get` nos notebooks).
-- Padronizar um único modelo operacional reduz risco de divergência entre ambientes.
 
 ## Pipelines
 Documentação por pipeline/job:

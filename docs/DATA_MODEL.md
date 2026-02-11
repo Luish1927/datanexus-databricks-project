@@ -15,9 +15,6 @@ O modelo final combina fatos de comércio exterior com dimensões de país, prod
 - Métricas: `vl_free_on_board`, `qt_peso_liquido_kg`.
 - Particionamento: `an_operacao`, `me_operacao`.
 
-⚠️ Atenção
-- O notebook usa `merge` com `dfJoin`, não com `dfAgg`. Validar se o grão efetivo em produção é agregado ou detalhado.
-
 ### `gold.rst_base_empresarial`
 - Grão: `sg_unidade_federativa`, `cod_cnae`.
 - Métricas: `empresas_ativas`, `empresas_matriz`, `capital_social_total`, `qtd_mei`, `qtd_simples`.
@@ -49,9 +46,6 @@ gold.rst_base_empresarial --(sigla_uf)---> gold.dim_uf
 ### Base empresarial
 - `gold.rst_base_empresarial.cod_cnae` -> `gold.dim_cnaes.cod_cnae` (N:1)
 - `gold.rst_base_empresarial.sg_unidade_federativa` -> `gold.dim_uf.sigla_uf` (N:1 lógica)
-
-⚠️ Atenção
-- PK/FK não são materialmente impostas por constraint no código versionado; são chaves lógicas de modelagem/consumo.
 
 ## Modelo Silver de suporte
 - Fatos:

@@ -111,12 +111,3 @@ FROM silver_comercio_ext_auxiliares.tb_referencia_pais_bloco
 GROUP BY CO_PAIS
 ORDER BY qtd_blocos DESC;
 ```
-
-## ⚠️ Atenção
-1. Divergência DDL vs notebook:
-- O DDL de auxiliares não traz `TS_REF` e `NM_ORIGEM` na maioria das tabelas.
-- Os notebooks adicionam essas colunas técnicas.
-
-2. Incrementalidade:
-- Várias cargas usam `if (!silverExists)`, então mudanças futuras na origem podem não atualizar automaticamente a tabela Silver.
-- Para reprocessamento, revisar estratégia de overwrite/merge.

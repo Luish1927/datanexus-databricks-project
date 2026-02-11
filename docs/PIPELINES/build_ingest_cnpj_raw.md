@@ -20,8 +20,3 @@ Ingerir arquivos ZIP de CNPJ, extrair CSVs e gravar Delta em camada raw/bronze c
 ## Saídas
 - Paths Delta em `abfss://bronze@storagedatanexus.dfs.core.windows.net/cnpj/<base_no_ext>`
 - Tabelas `<raw_catalog>.<raw_schema_cnpj>.<base_no_ext>`
-
-## ⚠️ Atenção
-1. `build/Cnpj_Into_Raw.ipynb` depende de `%run /Workspace/Shared/build/Parametros_Ingest` (não versionado).
-2. Há notebooks `build/*` com células vazias/placeholders.
-3. Não há workflow/job versionado para essa execução.

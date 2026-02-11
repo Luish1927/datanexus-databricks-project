@@ -31,8 +31,3 @@ Construir dimensões e bridges de classificação econômica/produto (NCM/ISIC/C
 ## Qualidade
 - validação de chave natural não nula.
 - deduplicação por chave.
-
-## ⚠️ Atenção
-1. `tb_referencia_isic_cuci`: path `tb_classificacao_isic_cuci` no notebook diverge do DDL.
-2. `tb_referencia_nbm_ncm`: nome diverge do DDL (`tb_referencia_ncm_nbm`).
-3. Padrão `if (!silverExists)` pode bloquear atualização incremental.

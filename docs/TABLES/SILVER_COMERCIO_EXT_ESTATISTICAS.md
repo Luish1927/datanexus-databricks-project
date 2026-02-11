@@ -70,15 +70,3 @@ FROM silver_comercio_ext_estatisticas.tb_exportacoes
 GROUP BY CO_ANO, CO_MES
 ORDER BY CO_ANO, CO_MES;
 ```
-
-## ⚠️ Atenção
-1. `tb_importacoes_municipios`:
-- no notebook, schema/colunas diferem do DDL em `notebooks/silver/_ddl_silver.ipynb`.
-- validar definição oficial antes de consumo.
-
-2. `tb_exportacoes_municipios`:
-- notebook usa `SG_UF_MUN`; DDL define `SG_UF_NCM`; merge referencia `SG_UF_NCM`.
-- validar mapeamento de coluna.
-
-3. `tb_importacoes_municipios` DDL:
-- `LOCATION` aponta para pasta de `tb_importacoes` no conteúdo versionado.

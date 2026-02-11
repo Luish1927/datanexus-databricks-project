@@ -27,6 +27,3 @@ Construir fato agregado de base empresarial por UF e CNAE.
 ## Carga
 - `saveAsTable(target_table)` com overwrite e `mergeSchema=true`.
 - `OPTIMIZE ... ZORDER BY (cod_cnae)`.
-
-## ⚠️ Atenção
-- O DDL de `gold.rst_base_empresarial` e o conjunto de colunas efetivamente gravadas no notebook não estão 100% alinhados (ex.: `porte_empresa`, `qtd_mei`, `qtd_simples`).

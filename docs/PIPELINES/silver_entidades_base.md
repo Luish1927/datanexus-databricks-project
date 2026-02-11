@@ -5,7 +5,6 @@
 - `notebooks/silver/abs_landingbeca2026jan/entidades_base/Untitled Notebook 2026-02-09 17:11:05.ipynb`
 
 ## Estado atual
-⚠️ Atenção
 - Os notebooks estão vazios/incompletos no repositório versionado.
 - Não há transformação documentável de ponta a ponta para entidades base nesta pasta.
 

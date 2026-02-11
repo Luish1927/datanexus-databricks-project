@@ -22,7 +22,3 @@ Entregar panorama macro de comércio exterior por período, UF e classificação
 
 ## Carga
 - `merge` em `gold.rst_comercio_exterior` por chave de negócio.
-
-## ⚠️ Atenção
-1. `tp_operacao` em importações está definido como `"EXP"` no código versionado.
-2. O `merge` usa `dfJoin` em vez de `dfAgg`; validar o grão efetivo de persistência.

@@ -34,8 +34,3 @@ Checklist:
 
 ## 7. Há CI/CD versionado para os notebooks?
 Não foi identificado no repositório (sem YAML/JSON de jobs/workflows).
-
-## 8. Posso rodar localmente fora do Databricks?
-⚠️ Atenção
-- O projeto depende fortemente de `dbutils`, mounts `/mnt`, paths `abfss://`, Delta e contexto Databricks.
-- Execução local só é viável com adaptação significativa e credenciais/infra equivalentes.

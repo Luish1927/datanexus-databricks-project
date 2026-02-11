@@ -40,9 +40,6 @@
 - Tabelas com `merge`: reprocessamento tende a ser idempotente por chave de negócio.
 - Tabelas com `if (!silverExists)`: não atualizam após primeira carga.
 
-⚠️ Atenção
-- Para tabelas com `if (!silverExists)`, backfill exige ajuste do notebook (ou limpeza controlada da pasta/tabela).
-
 ### Gold
 - Jobs usam `overwrite` em parte dos casos, com particionamento em fatos temporais.
 - Reprocessamento completo é viável quando os dados Silver estiverem íntegros.
@@ -90,6 +87,5 @@ FROM silver_comercio_ext_estatisticas.tb_exportacoes;
 ```
 
 ## Agendamento
-⚠️ Atenção
 - O repositório não contém export de Jobs/Workflows Databricks.
 - Validar cron, dependências e políticas de retry diretamente no workspace.

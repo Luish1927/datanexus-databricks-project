@@ -78,24 +78,3 @@ Fluxo observado no repositório:
 
 4. DDL separado dos notebooks de transformação
 - Trade-off: boa separação de responsabilidade; exige disciplina operacional (rodar DDL antes dos jobs).
-
-## ⚠️ Atenção (inconsistências detectadas)
-1. `tb_referencia_isic_cuci`:
-- notebook grava em `tb_classificacao_isic_cuci`, enquanto DDL define `tb_referencia_isic_cuci`.
-- Validar caminho e nome final antes de produção.
-
-2. `tb_referencia_nbm_ncm` vs DDL `tb_referencia_ncm_nbm`:
-- nomenclatura invertida entre notebook e DDL.
-- Validar tabela oficial consumida a jusante.
-
-3. `tb_importacoes_municipios` (DDL):
-- `LOCATION` aponta para pasta de `tb_importacoes` no DDL extraído.
-- Validar localização física para evitar sobrescrita indevida.
-
-4. `gold.rst_comercio_exterior`:
-- notebook agrega em `dfAgg`, mas `merge` usa `dfJoin`.
-- revisar se o alvo deve receber dados agregados ou nível detalhado.
-
-5. notebooks incompletos:
-- `notebooks/silver/abs_landingbeca2026jan/entidades_base/tb_empresas.ipynb` vazio.
-- `build/*` parcialmente placeholder e com dependências externas de workspace.

@@ -27,6 +27,3 @@ Publicar dimensões auxiliares para enriquecer fatos de comércio exterior (paí
 
 ## Carga
 - padrão `if (!silverExists) overwrite path`.
-
-## ⚠️ Atenção
-- Como a carga é condicional à inexistência da pasta, mudanças na origem podem não refletir automaticamente.

@@ -64,7 +64,3 @@ FROM gold.rst_exp_imp_pais
 GROUP BY ano_operacao, mes_operacao, cod_pais
 ORDER BY ano_operacao, mes_operacao, cod_pais;
 ```
-
-## ⚠️ Atenção
-- `notebooks/gold/_ddl_gold.ipynb` possui trecho de `ALTER TABLE gold.dim_ncm_isic` incompleto no conteúdo versionado.
-- `gold.rst_base_empresarial` no DDL inclui `porte_empresa`, mas o notebook grava colunas adicionais (`qtd_mei`, `qtd_simples`) e não projeta explicitamente `porte_empresa` no output final.

@@ -41,7 +41,3 @@ Consolidar séries anuais/mensais de exportação e importação em fatos Silver
 ## Qualidade
 - filtros de `isNotNull` para chaves obrigatórias.
 - deduplicação explícita por chave composta.
-
-## ⚠️ Atenção
-1. Possíveis inconsistências de merge no código versionado (ex.: nomes de colunas em condição).
-2. `tb_importacoes_municipios` não atualiza após criação inicial sem ajuste de notebook.

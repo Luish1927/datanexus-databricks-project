@@ -14,10 +14,6 @@ storage_key = "<azure-storage-key-configurada-no-cluster>"
 spark.conf.set("fs.azure.account.key.storagedatanexus.dfs.core.windows.net", storage_key)
 ```
 
-⚠️ Atenção
-- No repositório, os notebooks de configuração ainda usam `dbutils.secrets.get(...)` como exemplo.
-- Operacionalmente, considerar a configuração do cluster como fonte de verdade atual.
-
 ## Como aplicar no cluster (recomendado no cenário atual)
 1. Abrir a configuração do cluster Databricks.
 2. Definir Spark config para acesso ADLS:
@@ -29,10 +25,6 @@ fs.azure.account.key.storagedatanexus.dfs.core.windows.net=<valor-da-chave-no-am
 ```python
 spark.conf.get("fs.azure.account.key.storagedatanexus.dfs.core.windows.net")
 ```
-
-⚠️ Atenção
-- Nunca commitar valores reais da chave no repositório.
-- Em ambientes com governança mais rígida, migrar para secret scope + Key Vault.
 
 ### Otimizações Delta habilitadas
 ```python
@@ -65,7 +57,6 @@ Ordem recomendada:
 3. `notebooks/gold/_ddl_gold.ipynb`
 
 ## Compute recomendado (a validar em ambiente)
-⚠️ Atenção
 - O repositório não versiona especificação de cluster/job (DBR, node type, autoscaling).
 - Validar no workspace Databricks os parâmetros operacionais reais.
 
@@ -84,5 +75,5 @@ Sugestão operacional mínima:
 - Não hardcodear connection string/token em notebooks.
 - Revisar periodicamente permissões de cluster e política de rotação da chave.
 
-### ⚠️ Segurança
+### Segurança adicional
 Se surgir qualquer credencial em texto puro no workspace (não observada neste repo), mover para Databricks Secrets + integração com Key Vault.
